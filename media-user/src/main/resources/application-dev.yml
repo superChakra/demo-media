@@ -1,0 +1,51 @@
+encrypt:
+  salt: Qmj9YOYrRc86ub1Z
+
+jwt:
+  expiration: 5184000   #一个小时有效
+  secret: 6rQhjE6d7nK27vkB5AteQ7ZWUa77E0g8HYcOe1FbL7lmDVSYdRiMM9VtriiLKig4
+  issuer: com.superchakra
+
+
+aliyun:
+  access-key-id:
+  access-key-secret:
+
+spring:
+  # mysql配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver  # MySQL驱动
+    url: jdbc:mysql://localhost:3306/train?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC  # 数据库连接URL
+    username: admin_train  # 数据库用户名
+    password: 123456  # 数据库密码
+
+  data:
+    # Redis配置
+    redis:
+      host: 192.168.154.132
+      port: 6379
+      password: chakra
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1ms
+      timeout: 5000ms
+
+# mybatis-plus配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    auto-mapping-unknown-column-behavior: warning
+    arg-name-based-constructor-auto-mapping: true
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
+  type-aliases-package: com.superchakra.train.entity
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
