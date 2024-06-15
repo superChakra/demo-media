@@ -15,8 +15,8 @@ spring:
   # mysql配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver  # MySQL驱动
-    url: jdbc:mysql://localhost:3306/train?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC  # 数据库连接URL
-    username: admin_train  # 数据库用户名
+    url: jdbc:mysql://localhost:3306/media?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC  # 数据库连接URL
+    username: root_media  # 数据库用户名
     password: 123456  # 数据库密码
 
   data:
@@ -35,6 +35,12 @@ spring:
 
 # mybatis-plus配置
 mybatis-plus:
+  global-config:
+    banner: false
+    db-config:
+      logic-delete-field: isDeleted # 全局逻辑删除字段名
+      logic-delete-value: true # 逻辑已删除值
+      logic-not-delete-value: false # 逻辑未删除值
   configuration:
     map-underscore-to-camel-case: true
     auto-mapping-behavior: full
