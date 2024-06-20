@@ -27,7 +27,7 @@ public class UserController implements UserControllerApi {
     @Resource
     private StringRedisTemplate stringRedisTemplate;
     @Resource
-    private SmsHelper smsHelper;
+    private ApiHelper apiHelper;
     @Resource
     private IpAddressHelper ipAddressHelper;
     /**
@@ -102,7 +102,7 @@ public class UserController implements UserControllerApi {
     public Result code(String phone, HttpServletRequest request, HttpServletResponse response) throws Exception {
         String clientIp = ipAddressHelper.getClientIp(request);
         stringRedisTemplate.opsForValue().set(clientIp, phone, 60, TimeUnit.SECONDS);
-        String verificationCode = smsHelper.sendSms(phone);
+        String verificationCode = apiHelper.sendSms(phone);
         stringRedisTemplate.opsForValue().set(phone, verificationCode, 5, TimeUnit.MINUTES);
         return new Result().success(ResultStatusEnum.SUCCESS, null);
     }

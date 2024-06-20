@@ -10,6 +10,10 @@ jwt:
 aliyun:
   access-key-id: 填写自己的access-key-secret
   access-key-secret: 填写自己的access-key-secret
+  endpoint: 填写自己的
+  bucket-name: 填写自己的
+  object-name: ${spring.application.name}/
+
 
 spring:
   # mysql配置
@@ -32,6 +36,13 @@ spring:
           min-idle: 0
           max-wait: -1ms
       timeout: 5000ms
+
+  # file上传配置
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
 
 # mybatis-plus配置
 mybatis-plus:

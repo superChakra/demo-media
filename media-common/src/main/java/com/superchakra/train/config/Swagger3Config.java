@@ -14,6 +14,11 @@ public class Swagger3Config {
         return GroupedOpenApi.builder().group("media-user").pathsToMatch("/user/**").build();
     }
     @Bean
+    public GroupedOpenApi FileApi()
+    {
+        return GroupedOpenApi.builder().group("media-file").pathsToMatch("/file/**").build();
+    }
+    @Bean
     public OpenAPI docsOpenApi()
     {
         return new OpenAPI()

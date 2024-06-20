@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.superchakra.train.mapper.FileMapper">
+
+    <resultMap id="BaseResultMap" type="com.superchakra.train.entity.File">
+            <id property="fileId" column="file_id" jdbcType="CHAR"/>
+            <result property="fileName" column="file_name" jdbcType="VARCHAR"/>
+            <result property="filePath" column="file_path" jdbcType="VARCHAR"/>
+            <result property="fileType" column="file_type" jdbcType="VARCHAR"/>
+            <result property="fileSize" column="file_size" jdbcType="BIGINT"/>
+            <result property="uploadTime" column="upload_time" jdbcType="TIMESTAMP"/>
+            <result property="uploadedBy" column="uploaded_by" jdbcType="CHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+            <result property="tags" column="tags" jdbcType="VARCHAR"/>
+            <result property="lastAccessed" column="last_accessed" jdbcType="TIMESTAMP"/>
+            <result property="checksum" column="checksum" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        file_id,file_name,file_path,
+        file_type,file_size,upload_time,
+        uploaded_by,description,is_deleted,
+        tags,last_accessed,checksum
+    </sql>
+</mapper>
